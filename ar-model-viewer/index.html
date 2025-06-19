@@ -35,9 +35,15 @@
         <a-entity camera></a-entity>
         
         <!-- デフォルトの3Dモデル（赤い箱） -->
-         <a-marker preset="hiro">
-            <!-- GLBモデルはJavaScriptから追加 -->
-         </a-marker>
+        <a-marker preset="hiro">
+            <a-gltf-model 
+              src="./models/BoushiAR.glb" 
+              position="0 0 0" 
+              scale="0.5 0.5 0.5" 
+              rotation="0 180 0">
+            </a-gltf-model>
+          </a-marker>
+          
          
     </a-scene>
 
