@@ -21,15 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // マーカーが検出されたときの処理
-    // BoushiAR.glbを表示
+    const marker = document.querySelector('a-marker');
     marker.addEventListener('markerFound', function() {
-        const model = document.createElement('a-gltf-model');
-        model.setAttribute('src', 'models/BoushiAR.glb');
-        model.setAttribute('position', '0 0 0');
-        model.setAttribute('scale', '1 1 1');
-        marker.appendChild(model);
+        console.log('マーカーを検出しました');
+        // マーカー検出時に追加のアニメーションなどを実装可能
     });
-    
 
     // マーカーを見失ったときの処理
     marker.addEventListener('markerLost', function() {
