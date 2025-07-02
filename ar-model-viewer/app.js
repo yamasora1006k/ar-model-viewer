@@ -46,4 +46,20 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('オフラインになりました');
         // オフラインモードの通知を表示するなどの処理を追加可能
     });
+    // Always-on-top コンポーネント定義
+    AFRAME.registerComponent('always-on-top', {
+        init: function () {
+            this.el.addEventListener('model-loaded', () => {
+                const mesh = this.el.getObject3D('mesh');
+                if (!mesh) { return; }
+                mesh.renderOrder = 999;
+                mesh.traverse(node => {
+                    if (node.isMesh) {
+                        node.material.depthTest = false;
+                        node.material.depthWrite = false;
+                    }
+                });
+            });
+        }
+    });
 });
